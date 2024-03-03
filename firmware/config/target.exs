@@ -49,7 +49,7 @@ config :nerves_ssh,
 #
 # See https://github.com/nerves-networking/vintage_net for more information
 config :vintage_net,
-  regulatory_domain: "00",
+  regulatory_domain: "US",
   config: [
     {"usb0", %{type: VintageNetDirect}},
     {"eth0",
@@ -57,8 +57,43 @@ config :vintage_net,
        type: VintageNetEthernet,
        ipv4: %{method: :dhcp}
      }},
-    {"wlan0", %{type: VintageNetWiFi}}
+    {"wlan0", 
+      %{
+        type: VintageNetWiFi,
+        vintage_net_wifi: %{
+          networks: [
+            %{
+              key_mgmt: :wpa_psk,
+              ssid: "iPhone 13 mini (4)",
+              psk: "kbbhello"
+            }
+          ]
+        },
+        ipv4: %{method: :dhcp}
+      },
+    }
   ]
+
+config :ui, UiWeb.Endpoint, 
+  url: [host: "nerves.local"],
+  http: [port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  secret_key_base: "HEY05EB1dFVSu6KykKHuS4rQPQzSHv4F7mGVB/gnDLrIu75wE/ytBXy2TaL3A6RA",
+  live_view: [signing_salt: "AAAABjEyERMkxgDh"],
+  check_origin: false,
+  # Start the server since we're running in a release instead of through `mix`
+  server: true,
+  render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Ui.PubSub,
+  # Nerves root filesystem is read-only, so disable the code reloader
+  code_reloader: false
+
+  config :ui, Ui.Repo,
+    database: "/data/pi_skateboard/pi_skateboard_ui.db",
+    pool_size: 5,
+    show_sensitive_data_on_connection_error: true
+
+config :phoenix, :json_library, Jason
 
 config :mdns_lite,
   # The `hosts` key specifies what hostnames mdns_lite advertises.  `:hostname`

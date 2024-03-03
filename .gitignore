@@ -20,18 +20,16 @@
 *.ez
 
 # Temporary files, for example, from tests.
-/tmp/
+tmp/
 
 # Ignore package tarball (built via "mix hex.build").
-/ui/ui-*.tar
+ui/ui-*.tar
+ui/ui_*
 
 # Ignore assets that are produced by build tools.
-/ui/priv/static/assets/
-
-# Ignore digested assets cache.
-/ui/priv/static/cache_manifest.json
+ui/priv/static
 
 # In case you use Node.js/npm, you want to ignore these.
-/ui/npm-debug.log
-/ui/assets/node_modules/
+ui/npm-debug.log
+ui/assets/node_modules/
 
