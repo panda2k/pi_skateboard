@@ -49,13 +49,15 @@ defmodule Firmware.MixProject do
       
       # phoenix ui dependency
       { :ui, path: "../ui", targets: @all_targets, env: Mix.env() },
+      # gps uart wrapper
+      { :gps, path: "../gps", targets: @all_targets, env: Mix.env() },
 
       # Allow Nerves.Runtime on host to support development, testing and CI.
       # See config/host.exs for usage.
       {:nerves_runtime, "~> 0.13.0"},
 
       # Dependencies for all targets except :host
-      {:nerves_pack, "~> 0.7.0", targets: @all_targets},
+      {:nerves_pack, "~> 0.7.0", targets: @all_targets},      
 
       # Dependencies for specific targets
       # NOTE: It's generally low risk and recommended to follow minor version

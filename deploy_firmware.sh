@@ -10,10 +10,13 @@ mix deps.get
 # This needs to be repeated when you change JS or CSS files.
 mix assets.deploy
 
+cd ../gps
+mix deps.get 
+
 cd ../firmware
 
 # Specify our target device.
-export MIX_TARGET=rpi3
+export MIX_TARGET=rpi3a
 export MIX_ENV=dev
 
 mix deps.get

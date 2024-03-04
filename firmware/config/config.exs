@@ -20,6 +20,12 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 
 config :nerves, source_date_epoch: "1709230713"
 
+config :ui,
+  ecto_repos: [Ui.Repo]
+
+# Use Jason for JSON parsing in Phoenix
+config :phoenix, :json_library, Jason
+
 if Mix.target() == :host do
   import_config "host.exs"
 else

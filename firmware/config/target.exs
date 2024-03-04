@@ -93,8 +93,6 @@ config :ui, UiWeb.Endpoint,
     pool_size: 5,
     show_sensitive_data_on_connection_error: true
 
-config :phoenix, :json_library, Jason
-
 config :mdns_lite,
   # The `hosts` key specifies what hostnames mdns_lite advertises.  `:hostname`
   # advertises the device's hostname.local. For the official Nerves systems, this
