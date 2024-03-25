@@ -77,6 +77,7 @@ config :vintage_net,
   ]
 
 config :ui, UiWeb.Endpoint,
+  adapter: Bandit.PhoenixAdapter, 
   url: [host: "nerves.local"],
   http: [port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
