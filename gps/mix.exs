@@ -21,7 +21,7 @@ defmodule Gps.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:nerves_uart, "~> 1.2"}
+      {:circuits_uart, "~> 1.5"}
     ]
   end
 end

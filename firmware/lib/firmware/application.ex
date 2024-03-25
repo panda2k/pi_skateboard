@@ -16,6 +16,7 @@ defmodule Firmware.Application do
         # Children for all targets
         # Starts a worker by calling: Firmware.Worker.start_link(arg)
         # {Firmware.Worker, arg},
+        { Task, &Firmware.DbMigration.migrate/0 }
       ] ++ children(target())
 
     Supervisor.start_link(children, opts)

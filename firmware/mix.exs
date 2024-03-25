@@ -48,7 +48,8 @@ defmodule Firmware.MixProject do
       {:toolshed, "~> 0.3.0"},
       
       # phoenix ui dependency
-      { :ui, path: "../ui", targets: @all_targets, env: Mix.env() },
+      { :ui, path: "../ui", targets: [:host | @all_targets], env: Mix.env() },
+      #{ :ui, path: "../ui", targets: @all_targets, env: Mix.env() },
       # gps uart wrapper
       { :gps, path: "../gps", targets: @all_targets, env: Mix.env() },
 

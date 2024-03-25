@@ -14,8 +14,8 @@ defmodule Gps do
   end
 
   def init(_args) do
-    {:ok, pid} = Nerves.UART.start_link()
-    :ok = Nerves.UART.open(pid, "ttyAMA0", speed: 9600)
+    {:ok, pid} = Circuits.UART.start_link()
+    :ok = Circuits.UART.open(pid, "ttyAMA0", speed: 9600)
     {:ok, pid}
   end
 
@@ -30,7 +30,7 @@ defmodule Gps do
           Map.put(state, :in_progress_message, new_message)
           |> then(fn state -> 
             case existing_message do 
-              << _head::binary-size(3), "GGA", _rest::binary >> -> 
+              << _head::binary-size(3), "RMC", _rest::binary >> -> 
                 Map.put(state, :messages, :queue.in(:binary.split(existing_message, ",", [:global]), state.messages))
               _ -> state
             end
