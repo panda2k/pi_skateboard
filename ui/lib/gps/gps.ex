@@ -48,7 +48,7 @@ defmodule Gps do
       [] ->
         {existing_message}
     
-      # string has new GGA message 
+      # string has new message 
       [<<"$", new_message::binary>>] -> 
         { existing_message, "$" <> new_message }
       

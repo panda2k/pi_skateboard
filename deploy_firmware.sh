@@ -1,3 +1,5 @@
+set -e
+
 cd ./ui
 
 # We want to build assets on our host machine.
