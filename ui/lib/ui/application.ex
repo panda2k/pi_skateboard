@@ -14,6 +14,7 @@ defmodule Ui.Application do
       {Phoenix.PubSub, name: Ui.PubSub},
       # Start a worker by calling: Ui.Worker.start_link(arg)
       # {Ui.Worker, arg},
+      Gps,
       # Start to serve requests, typically the last entry
       UiWeb.Endpoint
     ]

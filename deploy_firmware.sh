@@ -10,9 +10,6 @@ mix deps.get
 # This needs to be repeated when you change JS or CSS files.
 mix assets.deploy
 
-cd ../gps
-mix deps.get 
-
 cd ../firmware
 
 # Specify our target device.

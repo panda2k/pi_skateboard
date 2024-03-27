@@ -18,6 +18,8 @@ defmodule UiWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    live "/gps", GpsLive, :gps_live
   end
 
   # Other scopes may use custom stacks.

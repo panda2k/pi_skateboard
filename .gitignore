@@ -34,4 +34,4 @@ ui/npm-debug.log
 ui/assets/node_modules/
 
 ui/**/*.db
-
+*.DS_Store
